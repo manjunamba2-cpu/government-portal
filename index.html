@@ -168,12 +168,16 @@
         }
     </style>
 </head>
-<body>
-
+<body> 
     <div class="header">
         🏛️ UMONG Portal
     </div>
-
+<!-- START OF INTERACTIVE SEARCH BAR -->
+<div class="container" style="margin-bottom: 0; padding-bottom: 0;">
+    <div style="position: relative; width: 100%; max-width: 500px; margin: 0 auto 20px auto;">
+        <input type="text" id="portalSearch" onkeyup="filterServices()" placeholder="🔍 Search for government services (e.g., PAN, EPFO)..." style="width: 100%; padding: 12px 15px; font-size: 14px; border: 2px solid #0b3c5d; border-radius: 25px; outline: none; box-sizing: border-box; transition: all 0.3s ease;">
+    </div>
+<!-- END OF INTERACTIVE SEARCH BAR -->
     <div class="hero">
         <h2>UMONG Portal</h2>
         <p>Access official tracking systems for Aadhaar, Passports, PAN cards, and Sarathi permits.</p>
@@ -307,5 +311,24 @@
             <p style="margin: 0 0 15px 0; color: #4b5563; font-size: 13px;">Generate your Ayushman Bharat Health Account ID number to store healthcare records safely.</p>
             <a href="https://abdm.gov.in" target="_blank" style="display: inline-block; background-color: #0b3c5d; color: white; padding: 8px 12px; border-radius: 4px; text-decoration: none; font-size: 12px; font-weight: bold;">Manage ABHA Account</a>
         </div>
-
+        <!-- START OF SEARCH FILTER SCRIPT -->
+<script>
+function filterServices() {
+    let input = document.getElementById('portalSearch').value.toLowerCase();
+    let cards = document.querySelectorAll('.card-box');
+    
+    cards.forEach(card => {
+        let cardText = card.innerText.toLowerCase();
+        if (cardText.includes(input)) {
+            card.style.display = "block";
+        } else {
+            card.style.display = "none";
+        }
+    });
+}
+</script>
+<!-- END OF SEARCH FILTER SCRIPT -->
+        </body>
+    </html>
+        
     </div>
